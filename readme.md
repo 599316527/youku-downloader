@@ -8,11 +8,9 @@ Youku Downloader
 ## 用法
 
 Chromium 不支持 h264，又没有 flash，用 Puppeteer bundled chromium 打开优酷都提示浏览器过旧无法播放视频，懒得去绕开检测的，直接 `PUPPETEER_EXECUTABLE_PATH` 指定用 Chrome。
-实测直接用当前 chrome 的用户数据目录会 crash，所以指定单独的用户数据目录 `--user-data-dir=~/.config/puppeteer-chrome-dir`。
+实测直接用当前 chrome 的用户数据目录会 crash，所以指定单独的用户数据目录，用 `USER_DATA_DIR` 环境变量。
 
-也可以用代理工具把 `https://g.alicdn.com/player/beta-ykplayer/1.8.1/youku-player.min.js` 中检查 mp4 支持的地方改成永远返回 true。
-
-用 `USER_DATA_DIR` 指定用户数据目录，保存 cookie 等信息。
+也可以用代理工具把 `https://g.alicdn.com/player/beta-ykplayer/1.8.1/youku-player.min.js` 中检查 mp4 支持的地方改成永远返回 `true`。
 
 ```
 isSupportMP4: function() {
